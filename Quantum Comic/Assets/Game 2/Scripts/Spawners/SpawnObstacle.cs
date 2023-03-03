@@ -7,7 +7,7 @@ public class SpawnObstacle : MonoBehaviour
     public GameObject[] obstacles;
 
     public float timeBetweenSpawns;
-    private float timer;
+    public float timer;
     public bool canSpawn;
 
     private void Update()

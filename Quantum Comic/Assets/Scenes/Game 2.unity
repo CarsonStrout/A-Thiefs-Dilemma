@@ -385,6 +385,7 @@ MonoBehaviour:
   obstacles:
   - {fileID: 4968800006524717408, guid: e1a7a744df53f5c4390f8c5957a0d406, type: 3}
   timeBetweenSpawns: 2
+  timer: 1
   canSpawn: 0
 --- !u!1 &714895443
 GameObject:
@@ -1017,6 +1018,7 @@ MonoBehaviour:
   obstacles:
   - {fileID: 4968800006524717408, guid: e1a7a744df53f5c4390f8c5957a0d406, type: 3}
   timeBetweenSpawns: 2
+  timer: 0
   canSpawn: 0
 --- !u!1 &2032613038
 GameObject:
