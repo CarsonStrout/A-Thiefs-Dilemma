@@ -6,13 +6,20 @@ public class ObstacleControl : MonoBehaviour
 {
     public WaveParticle waveParticle;
     private BoxCollider obsCollider;
-    [SerializeField] private Renderer myModel;
-    private Color color;
+    [SerializeField] private Renderer[] myModels;
+    private Color[] colors;
 
     private void Start()
     {
         obsCollider = GetComponent<BoxCollider>();
-        color = myModel.material.color;
+
+        colors = new Color[myModels.Length];
+
+        for (int i = 0; i < myModels.Length; i++)
+        {
+            colors[i] = myModels[i].material.color;
+        }
+
     }
 
     private void Update()
@@ -20,14 +27,21 @@ public class ObstacleControl : MonoBehaviour
         if (waveParticle.inWave)
         {
             obsCollider.enabled = false;
-            color.a = 0.5f;
+            for (int i = 0; i < myModels.Length; i++)
+            {
+                colors[i].a = 0.25f;
+                myModels[i].material.color = colors[i];
+            }
         }
         else
         {
             obsCollider.enabled = true;
-            color.a = 1f;
+            for (int i = 0; i < myModels.Length; i++)
+            {
+                colors[i].a = 1f;
+                myModels[i].material.color = colors[i];
+            }
         }
 
-        myModel.material.color = color;
     }
 }
