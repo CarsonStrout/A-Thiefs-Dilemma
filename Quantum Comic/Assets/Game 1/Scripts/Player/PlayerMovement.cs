@@ -20,8 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     public Transform orientation;
 
-    public float horizontal;
-    public float vertical;
+    [HideInInspector] public float horizontal;
+    [HideInInspector] public float vertical;
 
     Vector3 moveDir;
 
