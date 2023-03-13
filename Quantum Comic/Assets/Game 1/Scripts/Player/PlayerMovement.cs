@@ -58,12 +58,12 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown("space") && readyToJump && isGrounded)
+        /* if (Input.GetKeyDown("space") && readyToJump && isGrounded)
         {
             readyToJump = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
-        }
+        } */
     }
 
     private void MovePlayer()
