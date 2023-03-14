@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8536121362752661936
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -8,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PlayerWave
-  m_Shader: {fileID: -6465566751694194690, guid: 2cc286c60e6f1c846933efdb28774d12, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ffac7d4000758a941a8bc88ae2810776, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -60,6 +73,18 @@ Material:
         m_Texture: {fileID: 2800000, guid: df47bc92742262941b4d120fa6e422de, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BUILTIN_QueueControl: 0
@@ -75,6 +100,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _QueueControl: 0
+    - _QueueOffset: 0
     - _Scroll_Speed: 0.1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -85,6 +112,7 @@ Material:
     - _Base_Color: {r: 0.32156864, g: 0.85882354, b: 0.6509804, a: 0}
     - _Color: {r: 1, g: 0.27830186, b: 0.27830186, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Fresnel_Color: {r: 2.996078, g: 0.4392157, b: 0, a: 1}
     - _Texture_Tiling: {r: 1, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &6002026654318006339

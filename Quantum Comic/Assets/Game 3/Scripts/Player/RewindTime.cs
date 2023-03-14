@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class RewindTime : MonoBehaviour
 {
@@ -13,23 +14,23 @@ public class RewindTime : MonoBehaviour
 
     public TrailRenderer tr;
 
-    public PostProcessVolume pp;
+    public Volume pp;
     private ChromaticAberration chromaticAberration;
     private Bloom bloom;
-    private ColorGrading colorGrading;
+    private ColorAdjustments colorAdjustments;
 
     public float chromMax;
     public float bloomMax;
-    public float tempMax;
+    public float colorMax;
     public float transitionTime;
 
     private void Start()
     {
         positions = new List<Vector3>();
 
-        pp.profile.TryGetSettings(out chromaticAberration);
-        pp.profile.TryGetSettings(out bloom);
-        pp.profile.TryGetSettings(out colorGrading);
+        pp.profile.TryGet(out chromaticAberration);
+        pp.profile.TryGet(out bloom);
+        pp.profile.TryGet(out colorAdjustments);
     }
 
     private void Update()
@@ -76,13 +77,13 @@ public class RewindTime : MonoBehaviour
         {
             chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, chromMax, transitionTime * Time.deltaTime);
             bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, bloomMax, transitionTime * Time.deltaTime);
-            colorGrading.temperature.value = Mathf.Lerp(colorGrading.temperature.value, tempMax, transitionTime * Time.deltaTime);
+            colorAdjustments.hueShift.value = Mathf.Lerp(colorAdjustments.hueShift.value, colorMax, transitionTime * Time.deltaTime);
         }
         else
         {
             chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, 0.2f, transitionTime * Time.deltaTime);
             bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, 5, transitionTime * Time.deltaTime);
-            colorGrading.temperature.value = Mathf.Lerp(colorGrading.temperature.value, 0, transitionTime * Time.deltaTime);
+            colorAdjustments.hueShift.value = Mathf.Lerp(colorAdjustments.hueShift.value, 0, transitionTime * Time.deltaTime);
         }
     }
 

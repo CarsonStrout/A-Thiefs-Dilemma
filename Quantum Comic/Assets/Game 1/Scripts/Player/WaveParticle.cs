@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class WaveParticle : MonoBehaviour
 {
     public Material[] materials;
     public GameObject playerObj, glasses;
-    public PostProcessVolume pp;
+    public Volume pp;
     private LensDistortion lensDistortion;
     private ChromaticAberration chromaticAberration;
     private Bloom bloom;
@@ -24,9 +25,9 @@ public class WaveParticle : MonoBehaviour
         glasses.GetComponent<MeshRenderer>().material = materials[0];
         inWave = false;
 
-        pp.profile.TryGetSettings(out lensDistortion);
-        pp.profile.TryGetSettings(out chromaticAberration);
-        pp.profile.TryGetSettings(out bloom);
+        pp.profile.TryGet(out lensDistortion);
+        pp.profile.TryGet(out chromaticAberration);
+        pp.profile.TryGet(out bloom);
     }
 
     private void Update()
@@ -48,8 +49,8 @@ public class WaveParticle : MonoBehaviour
             inWave = false;
 
             lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, 0, waveTime * Time.deltaTime);
-            chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, 0.05f, waveTime * Time.deltaTime);
-            bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, 20, waveTime * Time.deltaTime);
+            chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, 0.1f, waveTime * Time.deltaTime);
+            bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, 1, waveTime * Time.deltaTime);
         }
     }
 }
