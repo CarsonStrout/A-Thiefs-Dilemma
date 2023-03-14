@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
-    private bool readyToJump;
+    //private bool readyToJump;
 
     [Space(5)]
     [Header("Ground Check")]
@@ -30,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         RB = GetComponent<Rigidbody>();
-        ResetJump();
+        //ResetJump();
     }
 
     private void Update()
@@ -88,15 +88,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void Jump()
+    /* private void Jump()
     {
         RB.velocity = new Vector3(RB.velocity.x, 0f, RB.velocity.z);
 
         RB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
+    } */
 
-    private void ResetJump()
+    /* private void ResetJump()
     {
         readyToJump = true;
-    }
+    } */
 }
