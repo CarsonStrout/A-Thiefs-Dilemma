@@ -50,7 +50,7 @@ public class WaveParticle : MonoBehaviour
 
             lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, 0, waveTime * Time.deltaTime);
             chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, 0.1f, waveTime * Time.deltaTime);
-            bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, 1, waveTime * Time.deltaTime);
+            bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, 0.2f, waveTime * Time.deltaTime);
         }
     }
 }
