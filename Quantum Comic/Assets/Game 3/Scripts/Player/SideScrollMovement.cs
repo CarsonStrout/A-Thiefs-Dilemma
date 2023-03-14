@@ -20,6 +20,9 @@ public class SideScrollMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    [Space]
+    public RewindTime rewindTime;
+
     /* [Space]
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private ParticleSystem dust; */
@@ -36,6 +39,9 @@ public class SideScrollMovement : MonoBehaviour
         float dirX = Input.GetAxis("Horizontal");
         float dirY = Input.GetAxis("Vertical");
         Vector2 dir = new Vector2(dirX, dirY);
+
+        if (rewindTime.isRewinding)
+            return;
 
         if (RB.velocity.magnitude > maxSpeed)
             RB.velocity = Vector2.ClampMagnitude(RB.velocity, maxSpeed);
