@@ -11,6 +11,8 @@ public class RewindTime : MonoBehaviour
 
     public float recordTime = 5f;
 
+    public TrailRenderer tr;
+
     public PostProcessVolume pp;
     private ChromaticAberration chromaticAberration;
     private Bloom bloom;
@@ -38,6 +40,11 @@ public class RewindTime : MonoBehaviour
             StopRewind();
 
         ProcessChange();
+
+        if (isRewinding)
+            tr.gameObject.SetActive(true);
+        else
+            tr.gameObject.SetActive(false);
     }
 
     private void FixedUpdate()
