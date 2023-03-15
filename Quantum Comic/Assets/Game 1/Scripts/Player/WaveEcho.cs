@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class WaveEcho : MonoBehaviour
 {
+    private float timeBtwSpawns;
+    [Header("Spawn Speed")]
+    public float startTimeBtwSpawns;
+
+    [Space(5)]
+    [Header("References")]
     public WaveParticle waveParticle;
     public GameObject player;
     public PlayerMovement movement;
-    private float timeBtwSpawns;
-    public float startTimeBtwSpawns;
     public GameObject echo;
 
     private void Update()
     {
+        // when player is in wave form, spawns "echoes" of player behind, emulating a continuous light effect
         if (waveParticle.inWave && (movement.horizontal != 0 || movement.vertical != 0))
         {
             if (timeBtwSpawns <= 0)

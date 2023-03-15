@@ -19,11 +19,13 @@ public class TopDownMovement : MonoBehaviour
 
     private void Update()
     {
+        // movement input
         movement.x = Input.GetAxisRaw("Horizontal");
     }
 
     private void FixedUpdate()
     {
+        // simple side movement
         RB.MovePosition(RB.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 }

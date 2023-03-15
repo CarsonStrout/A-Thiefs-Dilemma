@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObstacleControl : MonoBehaviour
 {
+    [Header("References")]
     public WaveParticle waveParticle;
     private BoxCollider obsCollider;
     [SerializeField] private Renderer[] myModels;
@@ -16,6 +17,7 @@ public class ObstacleControl : MonoBehaviour
 
     private void Update()
     {
+        // turns off colliders and changes material when player is in wave mode, back on when not
         if (waveParticle.inWave)
         {
             obsCollider.enabled = false;

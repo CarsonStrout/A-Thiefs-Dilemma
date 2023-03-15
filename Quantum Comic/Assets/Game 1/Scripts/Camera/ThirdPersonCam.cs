@@ -16,6 +16,7 @@ public class ThirdPersonCam : MonoBehaviour
 
     private void Start()
     {
+        // hides the cursor and locks it to the game, keeping the player from clicking out of the scene
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

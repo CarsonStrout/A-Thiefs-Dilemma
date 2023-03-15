@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
+    [Header("References")]
     public GameObject virtualCam;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -17,6 +18,7 @@ public class RoomManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        // turns off the active camera to allow for transitions
         if (other.CompareTag("Player") && !other.isTrigger)
         {
             virtualCam.SetActive(false);

@@ -7,10 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     public float moveSpeed;
     public float groundDrag;
-    public float jumpForce;
-    public float jumpCooldown;
     public float airMultiplier;
-    //private bool readyToJump;
 
     [Space(5)]
     [Header("Ground Check")]
@@ -30,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         RB = GetComponent<Rigidbody>();
-        //ResetJump();
     }
 
     private void Update()
@@ -57,19 +53,13 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
-
-        /* if (Input.GetKeyDown("space") && readyToJump && isGrounded)
-        {
-            readyToJump = false;
-            Jump();
-            Invoke(nameof(ResetJump), jumpCooldown);
-        } */
     }
 
     private void MovePlayer()
     {
         moveDir = orientation.forward * vertical + orientation.right * horizontal;
 
+        // slightly different movespeed when in the air - not applicable at the moment
         if (isGrounded)
             RB.AddForce(moveDir * moveSpeed * 10f, ForceMode.Force);
         else
@@ -87,16 +77,4 @@ public class PlayerMovement : MonoBehaviour
             RB.velocity = new Vector3(limitedVel.x, RB.velocity.y, limitedVel.z);
         }
     }
-
-    /* private void Jump()
-    {
-        RB.velocity = new Vector3(RB.velocity.x, 0f, RB.velocity.z);
-
-        RB.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    } */
-
-    /* private void ResetJump()
-    {
-        readyToJump = true;
-    } */
 }

@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class SpawnObstacle : MonoBehaviour
 {
+    [Header("References")]
     public GameObject[] obstacles;
 
+    [Space(5)]
+    [Header("Timers")]
     public float timeBetweenSpawns;
     public float timer;
+    [Space(5)]
     public bool canSpawn;
 
     private void Update()
     {
+        // plays the timer after an object is spawned
         if (!canSpawn)
         {
             timer += Time.deltaTime;
@@ -30,6 +35,7 @@ public class SpawnObstacle : MonoBehaviour
 
     public void Spawn()
     {
+        // picks a random position for the object spawn
         Vector2 randomPos = new Vector2(transform.position.x + Random.Range(-7f, 7f), transform.position.y);
         int randomObs = Random.Range(0, obstacles.Length);
         Instantiate(obstacles[randomObs], randomPos, obstacles[randomObs].transform.rotation);

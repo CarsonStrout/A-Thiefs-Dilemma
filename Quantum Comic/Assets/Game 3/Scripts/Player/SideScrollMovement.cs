@@ -23,10 +23,6 @@ public class SideScrollMovement : MonoBehaviour
     [Space]
     public RewindTime rewindTime;
 
-    /* [Space]
-    [SerializeField] private TrailRenderer tr;
-    [SerializeField] private ParticleSystem dust; */
-
     private bool isFacingRight = true;
 
     private void Awake()
@@ -40,12 +36,15 @@ public class SideScrollMovement : MonoBehaviour
         float dirY = Input.GetAxis("Vertical");
         Vector2 dir = new Vector2(dirX, dirY);
 
+        // returns to not override the rewinding of positions
         if (rewindTime.isRewinding)
             return;
 
+        // limits the max velocity of the player
         if (RB.velocity.magnitude > maxSpeed)
             RB.velocity = Vector2.ClampMagnitude(RB.velocity, maxSpeed);
 
+        // allows the player to jump slightly after they leave an edge to make the game feel less restrictive
         if (IsGrounded())
             coyoteTimeCounter = coyoteTime;
         else
@@ -53,6 +52,7 @@ public class SideScrollMovement : MonoBehaviour
 
         Walk(dir);
 
+        // uses a jump buffer to let the player "queue" up a jump before they hit the ground within a certain amount of time
         if (Input.GetButtonDown("Jump"))
         {
             jumpBufferCounter = jumpBufferTime;
@@ -72,12 +72,14 @@ public class SideScrollMovement : MonoBehaviour
             }
         }
 
+        // variable jump heights by decreasing the y velocity by half if space is let go
         if (Input.GetButtonUp("Jump") && RB.velocity.y > 0f)
         {
             RB.velocity = new Vector2(RB.velocity.x, RB.velocity.y * 0.5f);
             coyoteTimeCounter = 0f;
         }
 
+        // manages the local scale of the player
         if (isFacingRight && dirX < 0f || !isFacingRight && dirX > 0f)
             Flip();
     }
@@ -97,7 +99,6 @@ public class SideScrollMovement : MonoBehaviour
 
     private void Jump(Vector2 dir)
     {
-        //CreateDust();
         RB.velocity = new Vector2(RB.velocity.x, 0);
         RB.velocity += dir * jumpForce;
     }
@@ -106,9 +107,4 @@ public class SideScrollMovement : MonoBehaviour
     {
         RB.velocity = new Vector2(dir.x * speed, RB.velocity.y);
     }
-
-    /* void CreateDust()
-    {
-        dust.Play();
-    } */
 }
