@@ -27098,9 +27098,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28feff90ebfc84f43b37a8c63acdfd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  maxSpeed: 30
-  jumpForce: 14
+  speed: 8
+  maxSpeed: 25
+  jumpForce: 16
   coyoteTime: 0.15
   jumpBufferTime: 0.1
   groundCheck: {fileID: 2126308793}

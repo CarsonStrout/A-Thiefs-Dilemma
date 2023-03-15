@@ -588,7 +588,7 @@ MonoBehaviour:
   glasses: {fileID: 1457500877}
   pp: {fileID: 1232695789}
   distMax: -0.5
-  chromMax: 3
+  chromMax: 5
   bloomMax: 3
   waveTime: 1
   inWave: 0
