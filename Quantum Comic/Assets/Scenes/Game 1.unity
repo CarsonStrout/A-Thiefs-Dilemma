@@ -557,8 +557,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 7
   groundDrag: 5
-  jumpForce: 12
-  jumpCooldown: 0.25
   airMultiplier: 0.4
   playerHeight: 2
   groundLayer:
@@ -604,10 +602,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c6e8e8318d9e24c952f188741dcae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTimeBtwSpawns: 0.05
   waveParticle: {fileID: 87974259}
   player: {fileID: 267057857}
   movement: {fileID: 87974258}
-  startTimeBtwSpawns: 0.05
   echo: {fileID: 5246978367065280928, guid: 880e52a4fc929144c87be158f724a502, type: 3}
 --- !u!1 &97970439
 GameObject:
