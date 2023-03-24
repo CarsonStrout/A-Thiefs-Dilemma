@@ -32,7 +32,7 @@ public class ZoomTransition : MonoBehaviour
     {
         if (zoomActive)
         {
-            StartCoroutine(LoadLevel(levelToLoad));
+            StartCoroutine(ZoomLoad(levelToLoad));
         }
     }
 
@@ -41,7 +41,7 @@ public class ZoomTransition : MonoBehaviour
         zoomActive = true;
     }
 
-    IEnumerator LoadLevel(int levelIndex)
+    IEnumerator ZoomLoad(int levelIndex)
     {
         // zoom effects
         cm.gameObject.SetActive(false);
@@ -52,7 +52,7 @@ public class ZoomTransition : MonoBehaviour
         vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, 0.5f, zoomSpeed * Time.deltaTime);
 
         // wait
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         // crossfade animation
         transition.SetTrigger("Start");
