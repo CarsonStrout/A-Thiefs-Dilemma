@@ -23,7 +23,7 @@ public class WaveEcho : MonoBehaviour
             if (timeBtwSpawns <= 0)
             {
                 GameObject instance = Instantiate(echo, transform.position, player.transform.rotation);
-                Destroy(instance, 2f);
+                Destroy(instance, 1f);
                 timeBtwSpawns = startTimeBtwSpawns;
             }
             else

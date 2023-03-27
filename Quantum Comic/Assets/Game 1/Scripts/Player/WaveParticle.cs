@@ -13,12 +13,14 @@ public class WaveParticle : MonoBehaviour
     private LensDistortion lensDistortion;
     private ChromaticAberration chromaticAberration;
     private Bloom bloom;
+    private Vignette vignette;
 
     [Space(5)]
     [Header("Distortion Stats")]
     public float distMax;
     public float chromMax;
     public float bloomMax;
+    public float vignetteMax;
     public float waveTime;
 
     [Space(5)]
@@ -34,6 +36,7 @@ public class WaveParticle : MonoBehaviour
         pp.profile.TryGet(out lensDistortion);
         pp.profile.TryGet(out chromaticAberration);
         pp.profile.TryGet(out bloom);
+        pp.profile.TryGet(out vignette);
     }
 
     private void Update()
@@ -49,6 +52,7 @@ public class WaveParticle : MonoBehaviour
             lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, distMax, waveTime * Time.deltaTime);
             chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, chromMax, waveTime * Time.deltaTime);
             bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, bloomMax, waveTime * Time.deltaTime);
+            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, vignetteMax, waveTime * Time.deltaTime);
         }
         else // player particle form
         {
@@ -61,6 +65,7 @@ public class WaveParticle : MonoBehaviour
             lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, 0, waveTime * Time.deltaTime);
             chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, 0.1f, waveTime * Time.deltaTime);
             bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, 0.2f, waveTime * Time.deltaTime);
+            vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, 0.3f, waveTime * Time.deltaTime);
         }
     }
 }
