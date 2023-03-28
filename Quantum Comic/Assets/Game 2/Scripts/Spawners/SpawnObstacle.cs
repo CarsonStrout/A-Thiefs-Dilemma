@@ -5,14 +5,14 @@ using UnityEngine;
 public class SpawnObstacle : MonoBehaviour
 {
     [Header("References")]
-    public GameObject[] obstacles;
+    [SerializeField] private GameObject[] obstacles;
 
     [Space(5)]
     [Header("Timers")]
-    public float timeBetweenSpawns;
-    public float timer;
+    [SerializeField] private float timeBetweenSpawns;
+    [SerializeField] private float timer;
     [Space(5)]
-    public bool canSpawn;
+    [SerializeField] private bool canSpawn;
 
     private void Update()
     {

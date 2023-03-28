@@ -7,7 +7,7 @@ public class TopDownMovement : MonoBehaviour
     public Rigidbody2D RB { get; private set; }
 
     [Header("Movement")]
-    public float moveSpeed = 10f;
+    [SerializeField] private float moveSpeed = 10f;
 
     Vector2 movement;
 

@@ -7,9 +7,9 @@ using UnityEngine.Rendering.Universal;
 public class WaveParticle : MonoBehaviour
 {
     [Header("References")]
-    public Material[] materials;
-    public GameObject playerObj, glasses;
-    public Volume pp; // urp post processing
+    [SerializeField] private Material[] materials;
+    [SerializeField] private GameObject playerObj, glasses;
+    [SerializeField] private Volume pp; // urp post processing
     private LensDistortion lensDistortion;
     private ChromaticAberration chromaticAberration;
     private Bloom bloom;
@@ -17,11 +17,11 @@ public class WaveParticle : MonoBehaviour
 
     [Space(5)]
     [Header("Distortion Stats")]
-    public float distMax;
-    public float chromMax;
-    public float bloomMax;
-    public float vignetteMax;
-    public float waveTime;
+    [SerializeField] private float distMax;
+    [SerializeField] private float chromMax;
+    [SerializeField] private float bloomMax;
+    [SerializeField] private float vignetteMax;
+    [SerializeField] private float waveTime;
 
     [Space(5)]
     public bool inWave;

@@ -6,9 +6,9 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
-    public GameObject pauseMenuUI;
+    [SerializeField] private GameObject pauseMenuUI;
 
-    public LevelLoader levelLoader;
+    [SerializeField] private LevelLoader levelLoader;
 
     void Update()
     {

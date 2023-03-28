@@ -5,17 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
-    public float moveSpeed;
-    public float groundDrag;
-    public float airMultiplier;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float groundDrag;
 
-    [Space(5)]
-    [Header("Ground Check")]
-    public float playerHeight;
-    public LayerMask groundLayer;
-    private bool isGrounded;
-
-    public Transform orientation;
+    [SerializeField] private Transform orientation;
 
     [HideInInspector] public float horizontal;
     [HideInInspector] public float vertical;
@@ -27,21 +20,13 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         RB = GetComponent<Rigidbody>();
+        RB.drag = groundDrag;
     }
 
     private void Update()
     {
-        // Ground check
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, groundLayer);
-
         MyInput();
         MaxSpeed();
-
-        // Drag
-        if (isGrounded)
-            RB.drag = groundDrag;
-        else
-            RB.drag = 0;
     }
 
     private void FixedUpdate()
@@ -59,11 +44,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDir = orientation.forward * vertical + orientation.right * horizontal;
 
-        // slightly different movespeed when in the air - not applicable at the moment
-        if (isGrounded)
-            RB.AddForce(moveDir * moveSpeed * 10f, ForceMode.Force);
-        else
-            RB.AddForce(moveDir * moveSpeed * 10f * airMultiplier, ForceMode.Force);
+        RB.AddForce(moveDir * moveSpeed * 10f, ForceMode.Force);
     }
 
     private void MaxSpeed()

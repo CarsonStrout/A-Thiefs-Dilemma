@@ -5,10 +5,10 @@ using UnityEngine;
 public class ObstacleControl : MonoBehaviour
 {
     [Header("References")]
-    public WaveParticle waveParticle;
+    [SerializeField] private WaveParticle waveParticle;
     private BoxCollider obsCollider;
     [SerializeField] private Renderer[] myModels;
-    public Material[] materials;
+    [SerializeField] private Material[] materials;
 
     private void Start()
     {

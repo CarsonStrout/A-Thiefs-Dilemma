@@ -21,7 +21,7 @@ public class SideScrollMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayer;
 
     [Space]
-    public RewindTime rewindTime;
+    [SerializeField] private RewindTime rewindTime;
 
     private bool isFacingRight = true;
 
@@ -86,7 +86,7 @@ public class SideScrollMovement : MonoBehaviour
 
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
     private void Flip()

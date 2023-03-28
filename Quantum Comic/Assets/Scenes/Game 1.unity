@@ -5712,11 +5712,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   groundDrag: 5
-  airMultiplier: 0.4
-  playerHeight: 2
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
   orientation: {fileID: 267057858}
   horizontal: 0
   vertical: 0
@@ -18617,7 +18612,6 @@ MonoBehaviour:
   orientation: {fileID: 267057858}
   player: {fileID: 87974257}
   playerObj: {fileID: 2027305548}
-  rb: {fileID: 87974256}
   rotationSpeed: 15
 --- !u!114 &963194232
 MonoBehaviour:
@@ -18819,7 +18813,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1028780434}
-  m_LocalRotation: {x: -0.47353715, y: -0.36592487, z: 0.5930826, w: 0.538623}
+  m_LocalRotation: {x: -0.47353718, y: -0.36592487, z: 0.5930826, w: 0.538623}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

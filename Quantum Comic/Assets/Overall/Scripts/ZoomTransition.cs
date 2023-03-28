@@ -17,8 +17,8 @@ public class ZoomTransition : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera cm, cmZoom;
     [SerializeField] private Animator transition;
 
-    public bool zoomActive = false;
-    public float zoomSpeed;
+    [SerializeField] private bool zoomActive = false;
+    [SerializeField] private float zoomSpeed;
 
     [SerializeField] private int levelToLoad;
 

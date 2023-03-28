@@ -7,8 +7,8 @@ using UnityEngine.Rendering.Universal;
 public class RewindTime : MonoBehaviour
 {
     [Header("References")]
-    public TrailRenderer tr;
-    public Volume pp; // urp post processing
+    [SerializeField] private TrailRenderer tr;
+    [SerializeField] private Volume pp; // urp post processing
 
     private ChromaticAberration chromaticAberration;
     private Bloom bloom;
@@ -16,13 +16,13 @@ public class RewindTime : MonoBehaviour
 
     [Space(5)]
     [Header("Distortion Stats")]
-    public float chromMax;
-    public float bloomMax;
-    public float colorMax;
-    public float transitionTime;
+    [SerializeField] private float chromMax;
+    [SerializeField] private float bloomMax;
+    [SerializeField] private float colorMax;
+    [SerializeField] private float transitionTime;
 
     [Space(5)]
-    public float recordTime = 5f; // amount of time in seconds that positions will be recorded
+    [SerializeField] private float recordTime = 5f; // amount of time in seconds that positions will be recorded
     public bool isRewinding = false;
 
     List<Vector3> positions;

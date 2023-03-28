@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class WaveEcho : MonoBehaviour
 {
-    private float timeBtwSpawns;
     [Header("Spawn Speed")]
-    public float startTimeBtwSpawns;
+    [SerializeField] private float startTimeBtwSpawns;
+    private float timeBtwSpawns;
 
     [Space(5)]
     [Header("References")]
-    public WaveParticle waveParticle;
-    public GameObject player;
-    public PlayerMovement movement;
-    public GameObject echo;
+    [SerializeField] private WaveParticle waveParticle;
+    [SerializeField] private GameObject player;
+    [SerializeField] private PlayerMovement movement;
+    [SerializeField] private GameObject echo;
 
     private void Update()
     {

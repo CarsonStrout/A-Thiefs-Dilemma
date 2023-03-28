@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     [Header("References")]
-    public GameObject virtualCam;
+    [SerializeField] private GameObject virtualCam;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
