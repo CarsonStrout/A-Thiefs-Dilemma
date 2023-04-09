@@ -9322,7 +9322,7 @@ MonoBehaviour:
   transition: {fileID: 1123125307}
   zoomActive: 0
   zoomSpeed: 1.5
-  levelToLoad: 2
+  levelToLoad: 0
 --- !u!4 &1463265601
 Transform:
   m_ObjectHideFlags: 0
