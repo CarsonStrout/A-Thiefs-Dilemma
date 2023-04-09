@@ -8,6 +8,7 @@ public class RewindTime : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private TrailRenderer tr;
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private Volume pp; // urp post processing
 
     private ChromaticAberration chromaticAberration;
@@ -48,9 +49,15 @@ public class RewindTime : MonoBehaviour
 
         // only gives the player a trail when in their rewind
         if (isRewinding)
+        {
             tr.gameObject.SetActive(true);
+            audioSource.pitch = -1;
+        }
         else
+        {
             tr.gameObject.SetActive(false);
+            audioSource.pitch = 1;
+        }
     }
 
     private void FixedUpdate()

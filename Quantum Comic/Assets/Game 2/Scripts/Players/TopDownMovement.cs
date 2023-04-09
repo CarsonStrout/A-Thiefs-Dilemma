@@ -4,28 +4,54 @@ using UnityEngine;
 
 public class TopDownMovement : MonoBehaviour
 {
-    public Rigidbody2D RB { get; private set; }
 
-    [Header("Movement")]
-    [SerializeField] private float moveSpeed = 10f;
-
-    Vector2 movement;
-
+    [SerializeField] private Vector2[] goalPos;
+    [SerializeField] private float speed;
+    private int currentPos;
+    private int movePos;
+    private bool isMoving;
 
     private void Start()
     {
-        RB = GetComponent<Rigidbody2D>();
+        isMoving = false;
+        currentPos = 1;
     }
 
     private void Update()
     {
-        // movement input
-        movement.x = Input.GetAxisRaw("Horizontal");
+        if (isMoving)
+        {
+            StartCoroutine(Move(movePos));
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (currentPos == 1)
+                movePos = 0;
+            else if (currentPos == 2)
+                movePos = 1;
+            else
+                return;
+            isMoving = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (currentPos == 1)
+                movePos = 2;
+            else if (currentPos == 0)
+                movePos = 1;
+            else
+                return;
+            isMoving = true;
+        }
     }
 
-    private void FixedUpdate()
+    IEnumerator Move(int targetPos)
     {
-        // simple side movement
-        RB.MovePosition(RB.position + movement * moveSpeed * Time.fixedDeltaTime);
+        transform.position = Vector2.Lerp(transform.position, goalPos[targetPos], speed * Time.deltaTime);
+
+        currentPos = movePos;
+
+        yield return null;
     }
 }

@@ -11,6 +11,9 @@ public class SpawnObstacle : MonoBehaviour
     [Header("Timers")]
     [SerializeField] private float timeBetweenSpawns;
     [SerializeField] private float timer;
+    [SerializeField] private float decreaseTime;
+    [SerializeField] private float minTime;
+
     [Space(5)]
     [SerializeField] private bool canSpawn;
 
@@ -24,6 +27,10 @@ public class SpawnObstacle : MonoBehaviour
             {
                 canSpawn = true;
                 timer = 0;
+                if (timeBetweenSpawns > minTime)
+                {
+                    timeBetweenSpawns -= decreaseTime;
+                }
             }
         }
         else
