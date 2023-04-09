@@ -6,6 +6,7 @@ public class SpawnObstacle : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject[] obstacles;
+    [SerializeField] private Vector2[] spawnPos;
 
     [Space(5)]
     [Header("Timers")]
@@ -43,7 +44,8 @@ public class SpawnObstacle : MonoBehaviour
     public void Spawn()
     {
         // picks a random position for the object spawn
-        Vector2 randomPos = new Vector2(transform.position.x + Random.Range(-7f, 7f), transform.position.y);
+        Vector2 randomPos = new Vector2(spawnPos[Random.Range(0, 2)].x, transform.position.y);
+
         int randomObs = Random.Range(0, obstacles.Length);
         Instantiate(obstacles[randomObs], randomPos, obstacles[randomObs].transform.rotation);
     }

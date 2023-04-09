@@ -24,7 +24,7 @@ public class TopDownMovement : MonoBehaviour
             StartCoroutine(Move(movePos));
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (currentPos == 1)
                 movePos = 0;
@@ -34,7 +34,7 @@ public class TopDownMovement : MonoBehaviour
                 return;
             isMoving = true;
         }
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (currentPos == 1)
                 movePos = 2;

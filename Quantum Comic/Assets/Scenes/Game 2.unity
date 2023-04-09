@@ -803,10 +803,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 4968800006524717408, guid: e1a7a744df53f5c4390f8c5957a0d406, type: 3}
-  timeBetweenSpawns: 3
-  timer: 1.5
+  spawnPos:
+  - {x: -14, y: 0}
+  - {x: -9, y: 0}
+  - {x: -4, y: 0}
+  timeBetweenSpawns: 2
+  timer: 1
   decreaseTime: 0.05
-  minTime: 1.5
+  minTime: 1
   canSpawn: 0
 --- !u!1 &618000350
 GameObject:
@@ -2141,10 +2145,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacles:
   - {fileID: 4968800006524717408, guid: e1a7a744df53f5c4390f8c5957a0d406, type: 3}
-  timeBetweenSpawns: 3
+  spawnPos:
+  - {x: 14, y: 0}
+  - {x: 9, y: 0}
+  - {x: 4, y: 0}
+  timeBetweenSpawns: 2
   timer: 0
   decreaseTime: 0.05
-  minTime: 1.5
+  minTime: 1
   canSpawn: 0
 --- !u!1 &2032613038
 GameObject:
