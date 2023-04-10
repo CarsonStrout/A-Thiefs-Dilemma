@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenuUI;
 
     [SerializeField] private LevelLoader levelLoader;
+    [SerializeField] private int pageLoad;
 
     void Update()
     {
@@ -30,6 +31,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1f;
+        AudioListener.pause = false;
         GameIsPaused = false;
     }
 
@@ -38,13 +40,15 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Cursor.lockState = CursorLockMode.Confined;
         Time.timeScale = 0f;
+        AudioListener.pause = true;
         GameIsPaused = true;
     }
 
     public void LoadComic()
     {
-        levelLoader.LoadNextLevel();
+        PlayerPrefs.SetInt("PageNumber", pageLoad);
         Time.timeScale = 1f;
+        levelLoader.LoadNextLevel();
         GameIsPaused = false;
     }
 }

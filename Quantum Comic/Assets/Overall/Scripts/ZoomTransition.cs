@@ -62,5 +62,7 @@ public class ZoomTransition : MonoBehaviour
 
         // load scene
         SceneManager.LoadScene(levelIndex);
+
+        PlayerPrefs.SetInt("PageNumber", 0);
     }
 }

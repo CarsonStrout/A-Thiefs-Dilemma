@@ -10,7 +10,7 @@ public class PageManager : MonoBehaviour
 
     private void Start()
     {
-        activePage = 0;
+        activePage = PlayerPrefs.GetInt("PageNumber", 0);
         virtualCam[activePage].SetActive(true);
     }
 
