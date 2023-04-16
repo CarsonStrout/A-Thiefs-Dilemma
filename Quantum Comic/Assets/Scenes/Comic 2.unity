@@ -3234,7 +3234,7 @@ MonoBehaviour:
   zoomActive: 0
   zoomSpeed: 1.5
   levelToLoad: 0
-  pageLoad: 1
+  pageLoad: 2
 --- !u!4 &254252136
 Transform:
   m_ObjectHideFlags: 0
