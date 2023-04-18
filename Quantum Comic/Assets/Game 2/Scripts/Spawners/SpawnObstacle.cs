@@ -6,7 +6,8 @@ public class SpawnObstacle : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject[] obstacles;
-    [SerializeField] private Vector2[] spawnPos;
+    [SerializeField] private Vector2[] leftSpawnPos;
+    [SerializeField] private Vector2[] rightSpawnPos;
 
     [Space(5)]
     [Header("Timers")]
@@ -15,12 +16,11 @@ public class SpawnObstacle : MonoBehaviour
     [SerializeField] private float decreaseTime;
     [SerializeField] private float minTime;
 
-    [Space(5)]
-    [SerializeField] private bool canSpawn;
+    private float lastSpawned;
+    private bool canSpawn;
 
     private void Update()
     {
-        // plays the timer after an object is spawned
         if (!canSpawn)
         {
             timer += Time.deltaTime;
@@ -34,19 +34,35 @@ public class SpawnObstacle : MonoBehaviour
                 }
             }
         }
-        else
+        else if (lastSpawned == 0)
         {
-            Spawn();
+            SpawnRight();
+            canSpawn = false;
+        }
+        else if (lastSpawned == 1)
+        {
+            SpawnLeft();
             canSpawn = false;
         }
     }
 
-    public void Spawn()
+    private void SpawnLeft()
     {
         // picks a random position for the object spawn
-        Vector2 randomPos = new Vector2(spawnPos[Random.Range(0, 2)].x, transform.position.y);
+        Vector2 randomPos = new Vector2(leftSpawnPos[Random.Range(0, 3)].x, transform.position.y);
 
         int randomObs = Random.Range(0, obstacles.Length);
         Instantiate(obstacles[randomObs], randomPos, obstacles[randomObs].transform.rotation);
+        lastSpawned = 0;
+    }
+
+    private void SpawnRight()
+    {
+        // picks a random position for the object spawn
+        Vector2 randomPos = new Vector2(rightSpawnPos[Random.Range(0, 3)].x, transform.position.y);
+
+        int randomObs = Random.Range(0, obstacles.Length);
+        Instantiate(obstacles[randomObs], randomPos, obstacles[randomObs].transform.rotation);
+        lastSpawned = 1;
     }
 }

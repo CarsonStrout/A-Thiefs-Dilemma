@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveDown : MonoBehaviour
 {
     [Header("Movement")]
-    public float speed = 40.0f;
+    [SerializeField] private float speed;
 
     private void Update()
     {
