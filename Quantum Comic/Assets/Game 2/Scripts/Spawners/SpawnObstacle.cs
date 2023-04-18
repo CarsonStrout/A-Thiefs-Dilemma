@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnObstacle : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] private GameManager2 gameManager;
     [SerializeField] private GameObject[] obstacles;
     [SerializeField] private Vector2[] leftSpawnPos;
     [SerializeField] private Vector2[] rightSpawnPos;
@@ -21,6 +22,9 @@ public class SpawnObstacle : MonoBehaviour
 
     private void Update()
     {
+        if (gameManager.gameComplete)
+            return;
+
         if (!canSpawn)
         {
             timer += Time.deltaTime;
