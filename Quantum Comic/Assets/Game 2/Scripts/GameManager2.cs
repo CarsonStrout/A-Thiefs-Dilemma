@@ -7,7 +7,8 @@ public class GameManager2 : MonoBehaviour
 {
     [SerializeField] private LevelLoader levelLoader;
     [SerializeField] private float gameLength;
-    [SerializeField] private TMP_Text text;
+    [SerializeField] private TMP_Text timerText;
+    [SerializeField] private TMP_Text instructionText;
     private int pageLoad = 1;
 
     public bool gameComplete;
@@ -25,6 +26,12 @@ public class GameManager2 : MonoBehaviour
         if (gameComplete)
             PlayerPrefs.SetInt("PageNumber", pageLoad);
 
+        if (gameLength < 57 && gameLength > 55)
+            instructionText.SetText("GO!");
+
+        if (gameLength < 56)
+            instructionText.SetText("");
+
         if (gameLength < 5)
             gameComplete = true;
 
@@ -38,7 +45,7 @@ public class GameManager2 : MonoBehaviour
         {
             gameLength -= Time.deltaTime;
             int rounded = (int)gameLength;
-            text.text = rounded.ToString();
+            timerText.text = rounded.ToString();
         }
 
     }
