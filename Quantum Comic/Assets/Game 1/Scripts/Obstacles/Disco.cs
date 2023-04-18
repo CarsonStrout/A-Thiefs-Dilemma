@@ -9,6 +9,8 @@ public class Disco : MonoBehaviour
     [SerializeField] private Volume pp; // urp post processing
     private ColorAdjustments colorAdjustments;
     [SerializeField] private float transitionTime;
+    [SerializeField] private AudioSource song;
+    [SerializeField] private AudioSource ambient;
 
     private bool increase;
 
@@ -23,4 +25,21 @@ public class Disco : MonoBehaviour
         colorAdjustments.hueShift.value = Mathf.PingPong(Time.time * transitionTime, 180);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!song.isPlaying)
+        {
+            ambient.Stop();
+            song.Play();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (song.isPlaying)
+        {
+            song.Stop();
+            ambient.Play();
+        }
+    }
 }
