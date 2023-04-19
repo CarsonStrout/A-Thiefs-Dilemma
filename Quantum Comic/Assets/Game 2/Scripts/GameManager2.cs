@@ -26,7 +26,7 @@ public class GameManager2 : MonoBehaviour
         if (gameComplete)
             PlayerPrefs.SetInt("PageNumber", pageLoad);
 
-        if (gameLength < 57 && gameLength > 55)
+        if (gameLength < 57 && gameLength > 56)
             instructionText.SetText("GO!");
 
         if (gameLength < 56)
