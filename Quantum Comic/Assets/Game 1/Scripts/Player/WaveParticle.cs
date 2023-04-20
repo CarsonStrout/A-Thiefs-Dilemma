@@ -9,6 +9,7 @@ public class WaveParticle : MonoBehaviour
     [Header("References")]
     [SerializeField] private Material[] materials;
     [SerializeField] private GameObject playerObj, glasses;
+    [SerializeField] private AudioSource waveSound;
     [SerializeField] private Volume pp; // urp post processing
     private LensDistortion lensDistortion;
     private ChromaticAberration chromaticAberration;
@@ -43,6 +44,9 @@ public class WaveParticle : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift)) // player wave form
         {
+            if (!waveSound.isPlaying)
+                waveSound.Play();
+
             // changes player materials to use wave shaders
             playerObj.GetComponent<MeshRenderer>().material = materials[1];
             glasses.GetComponent<MeshRenderer>().material = materials[3];
@@ -56,6 +60,8 @@ public class WaveParticle : MonoBehaviour
         }
         else // player particle form
         {
+            waveSound.Stop();
+
             // changes player materials to use its normal materials
             playerObj.GetComponent<MeshRenderer>().material = materials[0];
             glasses.GetComponent<MeshRenderer>().material = materials[2];
