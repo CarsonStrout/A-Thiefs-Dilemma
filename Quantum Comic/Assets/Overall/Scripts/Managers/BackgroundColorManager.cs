@@ -13,6 +13,7 @@ public class BackgroundColorManager : MonoBehaviour
     private void Start()
     {
         colorPos = PlayerPrefs.GetInt("PageNumber", 0);
+        nextColorPos = colorPos;
         cam.clearFlags = CameraClearFlags.SolidColor;
     }
 
