@@ -15,6 +15,7 @@ public class ComicReverse : MonoBehaviour
     [SerializeField] private AudioSource rewindSound;
     [SerializeField] private Volume pp; // urp post processing
     [SerializeField] private GameObject button;
+    [SerializeField] private SoundFadeManager soundFadeManager;
 
     private ChromaticAberration chromaticAberration;
     private Bloom bloom;
@@ -56,6 +57,9 @@ public class ComicReverse : MonoBehaviour
             lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, distortionAmount, transitionTime * Time.deltaTime);
 
             timer += Time.deltaTime;
+
+            if (timer > 1.5)
+                soundFadeManager.FadeAudio();
 
             if (timer > 2)
                 transition.SetTrigger("Start");

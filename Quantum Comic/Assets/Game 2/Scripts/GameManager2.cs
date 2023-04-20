@@ -11,6 +11,7 @@ public class GameManager2 : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text instructionText;
     [SerializeField] private GameObject gameOverText;
+    [SerializeField] private SoundFadeManager soundFadeManager;
 
     private int pageLoad = 1;
 
@@ -30,6 +31,7 @@ public class GameManager2 : MonoBehaviour
     {
         if (loseGame)
         {
+            soundFadeManager.FadeAudio();
             gameOverText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.R))
                 SceneManager.LoadScene(3);
@@ -48,7 +50,10 @@ public class GameManager2 : MonoBehaviour
             gameComplete = true;
 
         if (gameLength < 3)
+        {
+            soundFadeManager.FadeAudio();
             freeEnd = true;
+        }
 
         if (gameLength < 0)
             levelLoader.LoadNextLevel();

@@ -2252,6 +2252,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1017129217}
+        m_TargetAssemblyTypeName: SoundFadeManager, Assembly-CSharp
+        m_MethodName: FadeAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &595282428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3738,6 +3750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1017129216}
   - component: {fileID: 1017129215}
+  - component: {fileID: 1017129217}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -3772,6 +3785,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017129217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017129214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ddcbb8ba1515b4586d36c8bd6199b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - {fileID: 1589485351}
+  - {fileID: 1182089231}
+  maxVols:
+  - 0.2
+  - 0.2
 --- !u!1 &1036327128
 GameObject:
   m_ObjectHideFlags: 3
@@ -4781,7 +4812,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 21d7731a467549c4987a67de55ebf17c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4883,6 +4914,7 @@ MonoBehaviour:
   rewindSound: {fileID: 1182089231}
   pp: {fileID: 1796605480}
   button: {fileID: 887857445}
+  soundFadeManager: {fileID: 1017129217}
   chromMax: 0.75
   bloomMax: 15
   colorMax: 180
@@ -11819,7 +11851,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 53b06c2ae64891e4d9a4d64b7bf3ee25, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
