@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager2 : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class GameManager2 : MonoBehaviour
     public float gameLength;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text instructionText;
+    [SerializeField] private GameObject gameOverText;
+
     private int pageLoad = 1;
 
+    public bool loseGame;
     public bool gameComplete;
-
     public bool freeEnd;
 
     private void Start()
@@ -25,6 +28,13 @@ public class GameManager2 : MonoBehaviour
 
     private void Update()
     {
+        if (loseGame)
+        {
+            gameOverText.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.R))
+                SceneManager.LoadScene(3);
+        }
+
         if (gameComplete)
             PlayerPrefs.SetInt("PageNumber", pageLoad);
 
@@ -43,7 +53,7 @@ public class GameManager2 : MonoBehaviour
         if (gameLength < 0)
             levelLoader.LoadNextLevel();
 
-        if (gameLength > 0)
+        if (gameLength > 0 && !loseGame)
         {
             gameLength -= Time.deltaTime;
             int rounded = (int)gameLength;
