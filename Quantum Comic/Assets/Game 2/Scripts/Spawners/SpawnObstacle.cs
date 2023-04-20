@@ -20,10 +20,41 @@ public class SpawnObstacle : MonoBehaviour
     private float lastSpawned;
     private bool canSpawn;
 
+    private bool updateSpeed1;
+
+    private bool updateSpeed2;
+
+    private bool updateSpeed3;
+
+    private void Start()
+    {
+        updateSpeed1 = false;
+        updateSpeed2 = false;
+        updateSpeed3 = false;
+    }
+
     private void Update()
     {
         if (gameManager.gameComplete)
             return;
+
+        if (gameManager.gameLength < 50 && !updateSpeed1)
+        {
+            timeBetweenSpawns -= decreaseTime;
+            updateSpeed1 = true;
+        }
+
+        if (gameManager.gameLength < 40 && !updateSpeed2)
+        {
+            timeBetweenSpawns -= decreaseTime;
+            updateSpeed2 = true;
+        }
+
+        if (gameManager.gameLength < 30 && !updateSpeed3)
+        {
+            timeBetweenSpawns -= decreaseTime;
+            updateSpeed3 = true;
+        }
 
         if (!canSpawn)
         {
@@ -32,10 +63,6 @@ public class SpawnObstacle : MonoBehaviour
             {
                 canSpawn = true;
                 timer = 0;
-                if (timeBetweenSpawns > minTime)
-                {
-                    timeBetweenSpawns -= decreaseTime;
-                }
             }
         }
         else if (lastSpawned == 0)

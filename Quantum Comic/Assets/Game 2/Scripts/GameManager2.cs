@@ -6,7 +6,7 @@ using UnityEngine;
 public class GameManager2 : MonoBehaviour
 {
     [SerializeField] private LevelLoader levelLoader;
-    [SerializeField] private float gameLength;
+    public float gameLength;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text instructionText;
     private int pageLoad = 1;
@@ -17,6 +17,8 @@ public class GameManager2 : MonoBehaviour
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         gameComplete = false;
         freeEnd = false;
     }

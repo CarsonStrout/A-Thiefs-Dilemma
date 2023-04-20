@@ -30,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Time.timeScale = 1f;
         AudioListener.pause = false;
         GameIsPaused = false;
@@ -38,7 +39,7 @@ public class PauseMenu : MonoBehaviour
     private void Pause()
     {
         pauseMenuUI.SetActive(true);
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
         AudioListener.pause = true;
         GameIsPaused = true;
@@ -47,7 +48,6 @@ public class PauseMenu : MonoBehaviour
     public void LoadComic()
     {
         PlayerPrefs.SetInt("PageNumber", pageLoad);
-        Time.timeScale = 1f;
         levelLoader.LoadNextLevel();
         GameIsPaused = false;
     }
