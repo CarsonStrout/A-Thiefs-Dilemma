@@ -6145,7 +6145,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_RenderMode: 1
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -19898,6 +19898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pp: {fileID: 1796605480}
+  distortionAmount: -0.5
   ps: {fileID: 550395584}
   cm: {fileID: 1183542552}
   cmZoom: {fileID: 235700662}
