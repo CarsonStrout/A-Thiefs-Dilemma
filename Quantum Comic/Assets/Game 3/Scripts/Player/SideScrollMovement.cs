@@ -80,8 +80,8 @@ public class SideScrollMovement : MonoBehaviour
         }
 
         // manages the local scale of the player
-        if (isFacingRight && dirX < 0f || !isFacingRight && dirX > 0f)
-            Flip();
+        /* if (isFacingRight && dirX < 0f || !isFacingRight && dirX > 0f)
+            Flip(); */
     }
 
     private bool IsGrounded()
