@@ -11,6 +11,7 @@ public class ZoomBackTransition : MonoBehaviour
     [SerializeField] private Volume pp; // urp post processing
     private LensDistortion lensDistortion;
     private Vignette vignette;
+    [SerializeField] private float distortionAmount = 0.5f;
 
     [SerializeField] private ParticleSystem ps;
 
@@ -49,7 +50,7 @@ public class ZoomBackTransition : MonoBehaviour
         cmZoomOut.gameObject.SetActive(true);
 
         ps.gameObject.SetActive(true);
-        lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, 0.5f, zoomSpeed * Time.deltaTime);
+        lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, distortionAmount, zoomSpeed * Time.deltaTime);
         vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, 0.5f, zoomSpeed * Time.deltaTime);
 
         // wait
