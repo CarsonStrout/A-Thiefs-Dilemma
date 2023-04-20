@@ -30,9 +30,12 @@ public class ComicReverse : MonoBehaviour
     [SerializeField] private float transitionTime;
 
     private bool isRewinding = false;
+    private float timer;
 
     private void Start()
     {
+        timer = 0;
+
         if (rewindSound.isPlaying)
             rewindSound.Stop();
 
@@ -45,6 +48,22 @@ public class ComicReverse : MonoBehaviour
 
     private void Update()
     {
+        if (isRewinding)
+        {
+            chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, chromMax, transitionTime * Time.deltaTime);
+            bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, bloomMax, transitionTime * Time.deltaTime);
+            colorAdjustments.hueShift.value = Mathf.Lerp(colorAdjustments.hueShift.value, colorMax, transitionTime * Time.deltaTime);
+            lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, distortionAmount, transitionTime * Time.deltaTime);
+
+            timer += Time.deltaTime;
+
+            if (timer > 2)
+                transition.SetTrigger("Start");
+
+            if (timer > 3)
+                SceneManager.LoadScene(5);
+        }
+
         if (cm.isActiveAndEnabled && Input.GetKeyDown(KeyCode.LeftShift) && !isRewinding)
         {
             button.SetActive(false);
@@ -52,27 +71,6 @@ public class ComicReverse : MonoBehaviour
                 rewindSound.Play();
             audioSource.pitch = -1;
             isRewinding = true;
-            StartCoroutine(RewindToGame());
         }
-    }
-
-    IEnumerator RewindToGame()
-    {
-        chromaticAberration.intensity.value = Mathf.Lerp(chromaticAberration.intensity.value, chromMax, transitionTime * Time.deltaTime);
-        bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, bloomMax, transitionTime * Time.deltaTime);
-        colorAdjustments.hueShift.value = Mathf.Lerp(colorAdjustments.hueShift.value, colorMax, transitionTime * Time.deltaTime);
-        lensDistortion.intensity.value = Mathf.Lerp(lensDistortion.intensity.value, distortionAmount, transitionTime * Time.deltaTime);
-
-        // wait
-        yield return new WaitForSeconds(2f);
-
-        // crossfade animation
-        transition.SetTrigger("Start");
-
-        // wait
-        yield return new WaitForSeconds(1);
-
-        // load scene
-        SceneManager.LoadScene(5);
     }
 }

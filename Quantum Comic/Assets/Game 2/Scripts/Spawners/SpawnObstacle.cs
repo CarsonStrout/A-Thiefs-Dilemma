@@ -19,11 +19,8 @@ public class SpawnObstacle : MonoBehaviour
 
     private float lastSpawned;
     private bool canSpawn;
-
     private bool updateSpeed1;
-
     private bool updateSpeed2;
-
     private bool updateSpeed3;
 
     private void Start()

@@ -11,6 +11,7 @@ public class PageManager : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         activePage = PlayerPrefs.GetInt("PageNumber", 0);
         virtualCam[activePage].SetActive(true);
     }
