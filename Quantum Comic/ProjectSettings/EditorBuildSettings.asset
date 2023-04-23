@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game 3.unity
     guid: 5c4fb4cdd5206fb448ea27fc060bf8b1
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 56ea2f23ac6d7ff42900ec7bf73f6a5a
   m_configObjects: {}

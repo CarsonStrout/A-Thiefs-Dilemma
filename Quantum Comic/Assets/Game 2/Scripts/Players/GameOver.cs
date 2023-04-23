@@ -32,6 +32,7 @@ public class GameOver : MonoBehaviour
         else if (other.gameObject.tag == "Mine")
         {
             mineExplosion.Play();
+            Destroy(other.gameObject);
             Instantiate(mineParticle, otherPlayer.transform.position, mineParticle.transform.rotation);
             otherPlayer.SetActive(false);
             Instantiate(mineParticle, gameObject.transform.position, mineParticle.transform.rotation);

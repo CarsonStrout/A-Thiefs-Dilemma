@@ -279,9 +279,9 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1589485347}
   m_PlaneDistance: 100
-  m_PixelPerfect: 1
+  m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -2034,8 +2034,8 @@ GameObject:
   - component: {fileID: 1323302640}
   - component: {fileID: 1323302641}
   - component: {fileID: 1323302642}
-  - component: {fileID: 1323302643}
   - component: {fileID: 1323302644}
+  - component: {fileID: 1323302643}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
