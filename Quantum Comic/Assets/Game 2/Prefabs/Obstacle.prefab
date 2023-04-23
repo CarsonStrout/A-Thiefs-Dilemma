@@ -33,7 +33,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4701953531909069358}
-  - {fileID: 4874054302139274246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -110,6 +109,7 @@ GameObject:
   - component: {fileID: 4701953531909069358}
   - component: {fileID: 236054910124923394}
   - component: {fileID: 2153848421749215015}
+  - component: {fileID: 8553608980440319905}
   m_Layer: 0
   m_Name: Obstacle Sprite
   m_TagString: Untagged
@@ -152,7 +152,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6e5ac77329a495648ab8af3566ad736b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -196,66 +196,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab0c50ecdc6de3d4bb935f03916c28c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spinRate: 90
---- !u!1001 &5402625089627630813
-PrefabInstance:
+  spinRateMax: 50
+--- !u!114 &8553608980440319905
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 4968800006524717413}
-    m_Modifications:
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 674946711799986396, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-      propertyPath: m_Name
-      value: Obstacle Particles
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
---- !u!4 &4874054302139274246 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 674946711799986395, guid: 1d12727818fc0624b9384f4f4599fb64, type: 3}
-  m_PrefabInstance: {fileID: 5402625089627630813}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6816221104059168781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0

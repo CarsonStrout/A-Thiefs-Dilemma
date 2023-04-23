@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class ObstacleSpin : MonoBehaviour
 {
-    [SerializeField] private float spinRate;
+    [SerializeField] private float spinRateMax;
+    private float spinRate;
+
+    private void Start()
+    {
+        spinRate = Random.Range(-spinRateMax, spinRateMax);
+    }
 
     private void Update()
     {
