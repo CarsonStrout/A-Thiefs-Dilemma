@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 1463473726}
   - component: {fileID: 1463473725}
   m_Layer: 5
-  m_Name: Kevin Sherman
+  m_Name: Kevin Sherwood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kevin Sherman
+  m_text: Kevin Sherwood
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8ec513bf01f7b648b701666c218b879, type: 2}
   m_sharedMaterial: {fileID: -2659777742194805053, guid: b8ec513bf01f7b648b701666c218b879, type: 2}
