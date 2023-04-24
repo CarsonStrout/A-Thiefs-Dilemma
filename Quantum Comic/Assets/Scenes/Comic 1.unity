@@ -19299,9 +19299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 1298858531}
-  - {fileID: 1024595645}
   maxVols:
-  - 0.05
   - 0.05
 --- !u!82 &1298858531
 AudioSource:
