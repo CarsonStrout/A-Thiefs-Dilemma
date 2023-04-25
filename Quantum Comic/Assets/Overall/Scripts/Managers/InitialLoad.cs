@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class InitialLoad : MonoBehaviour
 {
-    [SerializeField] private GameObject button;
+    [SerializeField] private GameObject[] buttons;
     public static bool started = false;
 
     private void Awake()
     {
         if (!started)
         {
-            button.SetActive(true);
+            for (int i = 0; i < buttons.Length; i++)
+                buttons[i].SetActive(true);
             PlayerPrefs.DeleteAll();
         }
         else
-            button.SetActive(false);
+            for (int i = 0; i < buttons.Length; i++)
+                buttons[i].SetActive(false);
     }
 
     public void ComicStarted()
