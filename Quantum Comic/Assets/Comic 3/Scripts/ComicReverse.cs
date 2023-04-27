@@ -32,6 +32,10 @@ public class ComicReverse : MonoBehaviour
     [SerializeField] private float colorMax;
     [SerializeField] private float distortionAmount = -0.5f;
     [SerializeField] private float transitionTime;
+    [Space(5)]
+    [Header("Passive Chromatic Abberation")]
+    [SerializeField] private float chromMaxPassive;
+    [SerializeField] private float passiveSpeed;
 
     private bool isRewinding = false;
     private float timer;
@@ -75,6 +79,9 @@ public class ComicReverse : MonoBehaviour
             if (timer > 4)
                 SceneManager.LoadScene(5);
         }
+
+        if (!isRewinding)
+            chromaticAberration.intensity.value = Mathf.PingPong(passiveSpeed * Time.time, chromMaxPassive) + 0.2f;
 
         if (cm.isActiveAndEnabled && Input.GetKeyDown(KeyCode.LeftShift) && !isRewinding)
         {

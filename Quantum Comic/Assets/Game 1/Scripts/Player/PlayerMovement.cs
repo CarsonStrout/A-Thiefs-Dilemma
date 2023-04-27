@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform orientation;
 
+    [SerializeField] private bool dev;
+    private float devSprint = 0;
+    [SerializeField] private float devSprintSpeed;
+
     [HideInInspector] public float horizontal;
     [HideInInspector] public float vertical;
 
@@ -27,6 +31,15 @@ public class PlayerMovement : MonoBehaviour
     {
         MyInput();
         MaxSpeed();
+
+        if (dev)
+            if (Input.GetKeyDown(KeyCode.Period))
+            {
+                if (devSprint == 0)
+                    devSprint = devSprintSpeed;
+                else
+                    devSprint = 0;
+            }
     }
 
     private void FixedUpdate()
@@ -44,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDir = orientation.forward * vertical + orientation.right * horizontal;
 
-        RB.AddForce(moveDir * moveSpeed * 10f, ForceMode.Force);
+        RB.AddForce(moveDir * (moveSpeed + devSprint) * 10f, ForceMode.Force);
     }
 
     private void MaxSpeed()

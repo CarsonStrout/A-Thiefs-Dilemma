@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerExit : MonoBehaviour
 {
-    [SerializeField] private GameObject exitUI;
+    [SerializeField] private TMP_Text exitUI;
+    [SerializeField] private float speed;
     [SerializeField] private PauseMenu loader;
     [SerializeField] private SoundFadeManager soundFadeManager;
     [SerializeField] private AudioSource doorSound;
@@ -13,24 +15,29 @@ public class PlayerExit : MonoBehaviour
 
     private void Update()
     {
-        if (canExit && Input.GetKey(KeyCode.E) && !hasExited)
+        if (canExit)
         {
-            hasExited = true;
-            doorSound.Play();
-            soundFadeManager.FadeAudio();
-            loader.LoadComic();
+            exitUI.alpha = Mathf.Lerp(exitUI.alpha, 1, speed * Time.deltaTime);
+
+            if (Input.GetKey(KeyCode.E) && !hasExited)
+            {
+                hasExited = true;
+                doorSound.Play();
+                soundFadeManager.FadeAudio();
+                loader.LoadComic();
+            }
         }
+        else
+            exitUI.alpha = Mathf.Lerp(exitUI.alpha, 0, speed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        exitUI.SetActive(true);
         canExit = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        exitUI.SetActive(false);
         canExit = false;
     }
 }

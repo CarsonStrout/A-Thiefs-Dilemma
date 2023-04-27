@@ -12,6 +12,7 @@ public class GameManager2 : MonoBehaviour
     [SerializeField] private TMP_Text instructionText;
     [SerializeField] private GameObject gameOverText;
     [SerializeField] private SoundFadeManager soundFadeManager;
+    [SerializeField] private AudioSource song;
 
     private int pageLoad = 1;
 
@@ -41,7 +42,11 @@ public class GameManager2 : MonoBehaviour
             PlayerPrefs.SetInt("PageNumber", pageLoad);
 
         if (gameLength < 57 && gameLength > 56)
+        {
             instructionText.SetText("GO!");
+            if (!song.isPlaying)
+                song.Play();
+        }
 
         if (gameLength < 56)
             instructionText.SetText("");

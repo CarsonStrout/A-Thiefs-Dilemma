@@ -14,7 +14,8 @@ public class SoundFadeManager : MonoBehaviour
         {
             for (int i = 0; i < sounds.Length; i++)
             {
-                sounds[i].volume = Mathf.Lerp(sounds[i].volume, maxVols[i], 1f * Time.deltaTime);
+                if (sounds[i].isPlaying)
+                    sounds[i].volume = Mathf.Lerp(sounds[i].volume, maxVols[i], 1f * Time.deltaTime);
             }
         }
         else
