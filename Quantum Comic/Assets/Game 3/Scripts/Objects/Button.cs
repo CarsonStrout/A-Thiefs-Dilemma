@@ -5,6 +5,9 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer buttonSprite;
+    [SerializeField] private CinemachineShake cinemachineShake;
+    [SerializeField] private AudioSource buttonAudio;
+    [SerializeField] private AudioSource doorAudio;
     [SerializeField] private float speed;
     private Color tmp;
     private bool canActivate;
@@ -20,9 +23,12 @@ public class Button : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.E) && canActivate)
+        if (Input.GetKey(KeyCode.E) && canActivate && !buttonActivated)
         {
             buttonActivated = true;
+            cinemachineShake.ShakeCamera(2.4f, 2.5f);
+            buttonAudio.Play();
+            doorAudio.Play();
         }
 
         if (!buttonActivated)

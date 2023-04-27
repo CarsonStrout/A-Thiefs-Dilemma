@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     [SerializeField] private GameManager2 gameManager2;
+    [SerializeField] private CinemachineShake cinemachineShake;
     [SerializeField] private GameObject otherPlayer;
 
     [Header("Particle Effects")]
@@ -22,6 +23,7 @@ public class GameOver : MonoBehaviour
     {
         if (other.gameObject.tag == "Box")
         {
+            cinemachineShake.ShakeCamera(2f, 0.25f);
             playerExplosion.Play();
             Instantiate(boxParticle, otherPlayer.transform.position, boxParticle.transform.rotation);
             otherPlayer.SetActive(false);
@@ -31,6 +33,7 @@ public class GameOver : MonoBehaviour
         }
         else if (other.gameObject.tag == "Mine")
         {
+            cinemachineShake.ShakeCamera(5f, 0.25f);
             mineExplosion.Play();
             Destroy(other.gameObject);
             Instantiate(mineParticle, otherPlayer.transform.position, mineParticle.transform.rotation);
@@ -41,6 +44,7 @@ public class GameOver : MonoBehaviour
         }
         else if (other.gameObject.tag == "Obstacle")
         {
+            cinemachineShake.ShakeCamera(3f, 0.25f);
             playerImplosion.Play();
             Instantiate(implosionParticle, otherPlayer.transform.position, implosionParticle.transform.rotation);
             otherPlayer.SetActive(false);

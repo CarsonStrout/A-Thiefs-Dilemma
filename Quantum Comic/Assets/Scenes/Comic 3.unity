@@ -4576,8 +4576,8 @@ MonoBehaviour:
   - {fileID: 1017129218}
   - {fileID: 1182089231}
   maxVols:
-  - 0.2
-  - 0.2
+  - 0.4
+  - 0.4
 --- !u!82 &1017129218
 AudioSource:
   m_ObjectHideFlags: 0

@@ -5,8 +5,10 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private CinemachineShake cinemachineShake;
     [SerializeField] private SpriteRenderer playerSprite;
     private Color tmp;
+    [SerializeField] private AudioSource deathAudio;
     [SerializeField] private Button button;
     [SerializeField] private float speed;
     [SerializeField] private Transform respawnPos; // unique respawn point assigned in inspector for each "room"
@@ -34,6 +36,8 @@ public class Respawn : MonoBehaviour
 
     void RespawnPlayer()
     {
+        cinemachineShake.ShakeCamera(1f, 0.25f);
+        deathAudio.Play();
         button.buttonActivated = false;
         player.SetActive(false);
         tmp.a = 0;

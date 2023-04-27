@@ -12,7 +12,7 @@ public class RainManager : MonoBehaviour
     {
         if (cms[0].isActiveAndEnabled || cms[1].isActiveAndEnabled)
         {
-            rainstorm.volume = Mathf.Lerp(rainstorm.volume, 0.25f, 1.5f * Time.deltaTime);
+            rainstorm.volume = Mathf.Lerp(rainstorm.volume, 0.5f, 1.5f * Time.deltaTime);
         }
         else
         {

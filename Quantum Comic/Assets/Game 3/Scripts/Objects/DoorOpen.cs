@@ -16,8 +16,12 @@ public class DoorOpen : MonoBehaviour
     private void Update()
     {
         if (button.buttonActivated)
+        {
             transform.localPosition = Vector2.Lerp(transform.localPosition, pos[1], speed * Time.deltaTime);
+        }
         else
+        {
             transform.localPosition = Vector2.Lerp(transform.localPosition, pos[0], speed * Time.deltaTime);
+        }
     }
 }

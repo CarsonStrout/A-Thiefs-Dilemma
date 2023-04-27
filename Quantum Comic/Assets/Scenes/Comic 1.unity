@@ -19297,7 +19297,7 @@ MonoBehaviour:
   sounds:
   - {fileID: 1298858531}
   maxVols:
-  - 0.05
+  - 0.1
 --- !u!82 &1298858531
 AudioSource:
   m_ObjectHideFlags: 0
