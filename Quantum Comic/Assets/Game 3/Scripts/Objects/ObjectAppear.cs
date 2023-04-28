@@ -12,6 +12,7 @@ public class ObjectAppear : MonoBehaviour
     [SerializeField] private float speed;
     private bool activated;
     private bool canDrop;
+    public bool isVisible = false;
 
     private void Start()
     {
@@ -35,11 +36,13 @@ public class ObjectAppear : MonoBehaviour
                 {
                     tmp.a = Mathf.Lerp(tmp.a, 1, speed * Time.deltaTime);
                     Coll.enabled = true;
+                    isVisible = true;
                 }
                 else
                 {
                     tmp.a = Mathf.Lerp(tmp.a, 0, speed * Time.deltaTime);
                     Coll.enabled = false;
+                    isVisible = false;
                 }
                 objectSprite.color = tmp;
             }
