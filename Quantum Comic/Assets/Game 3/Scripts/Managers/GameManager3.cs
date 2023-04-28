@@ -9,5 +9,7 @@ public class GameManager3 : MonoBehaviour
     private void Start()
     {
         playerDeath = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
