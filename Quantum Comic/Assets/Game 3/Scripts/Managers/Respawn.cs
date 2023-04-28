@@ -14,10 +14,12 @@ public class Respawn : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Transform respawnPos; // unique respawn point assigned in inspector for each "room"
     [SerializeField] private ParticleSystem deathParticle;
+    private GameManager3 manager;
 
     private void Start()
     {
         tmp = playerSprite.color;
+        manager = GameObject.Find("GameManager").GetComponent<GameManager3>();
     }
 
     private void Update()
@@ -33,6 +35,7 @@ public class Respawn : MonoBehaviour
             if (!rewindTime.isRewinding)
             {
                 Instantiate(deathParticle, player.transform.position, deathParticle.transform.rotation);
+                manager.playerDeath = true;
                 RespawnPlayer();
             }
         }

@@ -7,6 +7,7 @@ using UnityEngine.Rendering.Universal;
 public class RewindTime : MonoBehaviour
 {
     [Header("References")]
+    [SerializeField] private GameManager3 gameManager3;
     [SerializeField] private TrailRenderer tr;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioSource rewindSound;
@@ -45,6 +46,12 @@ public class RewindTime : MonoBehaviour
 
     private void Update()
     {
+        if (gameManager3.playerDeath)
+        {
+            positions.Clear();
+            gameManager3.playerDeath = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
             StartRewind();
         if (Input.GetKeyUp(KeyCode.LeftShift))

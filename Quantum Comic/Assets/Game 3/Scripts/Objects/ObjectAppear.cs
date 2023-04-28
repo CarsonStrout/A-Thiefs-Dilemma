@@ -8,9 +8,8 @@ public class ObjectAppear : MonoBehaviour
     [SerializeField] private PlatformDrop[] platformDrops;
     private SpriteRenderer objectSprite;
     private Color tmp;
-    [SerializeField] private Button button;
+    public Button button;
     [SerializeField] private float speed;
-    private bool activated;
     private bool canDrop;
     public bool isVisible = false;
 
@@ -19,7 +18,6 @@ public class ObjectAppear : MonoBehaviour
         objectSprite = GetComponent<SpriteRenderer>();
         Coll = GetComponent<Collider2D>();
         tmp = objectSprite.color;
-        activated = false;
         if (platformDrops.Length > 0)
             canDrop = true;
         else

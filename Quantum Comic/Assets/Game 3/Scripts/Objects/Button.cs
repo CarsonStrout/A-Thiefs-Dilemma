@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
+    [SerializeField] private ObjectAppear[] objectAppear;
     [SerializeField] private SpriteRenderer buttonSprite;
     [SerializeField] private CinemachineShake cinemachineShake;
     [SerializeField] private AudioSource buttonAudio;
@@ -12,6 +13,7 @@ public class Button : MonoBehaviour
     private Color tmp;
     public bool finalButton;
     private bool canActivate;
+    private bool appear = false;
     [HideInInspector] public bool buttonActivated;
 
     private void Start()
@@ -20,6 +22,9 @@ public class Button : MonoBehaviour
         buttonActivated = false;
 
         tmp = buttonSprite.color;
+
+        if (objectAppear.Length > 0)
+            appear = true;
     }
 
     private void Update()
@@ -27,24 +32,41 @@ public class Button : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && canActivate && !buttonActivated)
         {
             buttonActivated = true;
+            buttonAudio.Play();
             if (finalButton)
             {
                 cinemachineShake.ShakeCamera(2.4f, 2.5f);
-                buttonAudio.Play();
                 doorAudio.Play();
             }
         }
 
-        if (!buttonActivated)
+        if (appear)
         {
-            tmp.a = Mathf.Lerp(tmp.a, 1, speed * Time.deltaTime);
+            if (!buttonActivated && objectAppear[0].button.buttonActivated)
+            {
+                tmp.a = Mathf.Lerp(tmp.a, 1, speed * Time.deltaTime);
+            }
+            else
+            {
+                tmp.a = Mathf.Lerp(tmp.a, 0, speed * Time.deltaTime);
+            }
+
+            buttonSprite.color = tmp;
         }
         else
         {
-            tmp.a = Mathf.Lerp(tmp.a, 0, speed * Time.deltaTime);
+            if (!buttonActivated)
+            {
+                tmp.a = Mathf.Lerp(tmp.a, 1, speed * Time.deltaTime);
+            }
+            else
+            {
+                tmp.a = Mathf.Lerp(tmp.a, 0, speed * Time.deltaTime);
+            }
+
+            buttonSprite.color = tmp;
         }
 
-        buttonSprite.color = tmp;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
