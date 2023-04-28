@@ -10,7 +10,7 @@ public class Respawn : MonoBehaviour
     [SerializeField] private SpriteRenderer playerSprite;
     private Color tmp;
     [SerializeField] private AudioSource deathAudio;
-    [SerializeField] private Button button;
+    [SerializeField] private Button[] buttons;
     [SerializeField] private float speed;
     [SerializeField] private Transform respawnPos; // unique respawn point assigned in inspector for each "room"
     [SerializeField] private ParticleSystem deathParticle;
@@ -42,7 +42,8 @@ public class Respawn : MonoBehaviour
     {
         cinemachineShake.ShakeCamera(1f, 0.25f);
         deathAudio.Play();
-        button.buttonActivated = false;
+        for (int i = 0; i < buttons.Length; i++)
+            buttons[i].buttonActivated = false;
         player.SetActive(false);
         tmp.a = 0;
         playerSprite.color = tmp;

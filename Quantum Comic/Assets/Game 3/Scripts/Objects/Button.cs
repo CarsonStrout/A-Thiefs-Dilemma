@@ -10,6 +10,7 @@ public class Button : MonoBehaviour
     [SerializeField] private AudioSource doorAudio;
     [SerializeField] private float speed;
     private Color tmp;
+    public bool finalButton;
     private bool canActivate;
     [HideInInspector] public bool buttonActivated;
 
@@ -26,9 +27,12 @@ public class Button : MonoBehaviour
         if (Input.GetKey(KeyCode.E) && canActivate && !buttonActivated)
         {
             buttonActivated = true;
-            cinemachineShake.ShakeCamera(2.4f, 2.5f);
-            buttonAudio.Play();
-            doorAudio.Play();
+            if (finalButton)
+            {
+                cinemachineShake.ShakeCamera(2.4f, 2.5f);
+                buttonAudio.Play();
+                doorAudio.Play();
+            }
         }
 
         if (!buttonActivated)
