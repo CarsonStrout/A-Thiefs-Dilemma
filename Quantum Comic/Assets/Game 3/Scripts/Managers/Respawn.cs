@@ -5,6 +5,7 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private RewindTime rewindTime;
     [SerializeField] private CinemachineShake cinemachineShake;
     [SerializeField] private SpriteRenderer playerSprite;
     private Color tmp;
@@ -29,8 +30,11 @@ public class Respawn : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Instantiate(deathParticle, player.transform.position, deathParticle.transform.rotation);
-            RespawnPlayer();
+            if (!rewindTime.isRewinding)
+            {
+                Instantiate(deathParticle, player.transform.position, deathParticle.transform.rotation);
+                RespawnPlayer();
+            }
         }
     }
 

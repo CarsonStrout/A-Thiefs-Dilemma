@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorOpen : MonoBehaviour
+public class MoveObject : MonoBehaviour
 {
     [SerializeField] private Button button;
     [SerializeField] private Vector2[] pos = new Vector2[2];

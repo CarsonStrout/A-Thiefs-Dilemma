@@ -78,10 +78,6 @@ public class SideScrollMovement : MonoBehaviour
             RB.velocity = new Vector2(RB.velocity.x, RB.velocity.y * 0.5f);
             coyoteTimeCounter = 0f;
         }
-
-        // manages the local scale of the player
-        /* if (isFacingRight && dirX < 0f || !isFacingRight && dirX > 0f)
-            Flip(); */
     }
 
     private bool IsGrounded()

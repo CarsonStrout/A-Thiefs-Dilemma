@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectAppear : MonoBehaviour
+public class PlatformAppear : MonoBehaviour
 {
     public Collider2D Coll { get; private set; }
-    [SerializeField] private SpriteRenderer objectSprite;
+    [SerializeField] private SpriteRenderer platformSprite;
     private Color tmp;
     [SerializeField] private Button button;
     [SerializeField] private float speed;
@@ -13,7 +13,7 @@ public class ObjectAppear : MonoBehaviour
     private void Start()
     {
         Coll = GetComponent<Collider2D>();
-        tmp = objectSprite.color;
+        tmp = platformSprite.color;
     }
 
     private void Update()
@@ -28,6 +28,6 @@ public class ObjectAppear : MonoBehaviour
             tmp.a = Mathf.Lerp(tmp.a, 0, speed * Time.deltaTime);
             Coll.enabled = false;
         }
-        objectSprite.color = tmp;
+        platformSprite.color = tmp;
     }
 }
