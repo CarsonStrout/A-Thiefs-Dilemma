@@ -46,6 +46,7 @@ public class PlatformDrop : MonoBehaviour
                 {
                     RB.bodyType = RigidbodyType2D.Dynamic;
                     Coll.enabled = false;
+                    RB.constraints = RigidbodyConstraints2D.FreezeRotation;
                     RB.gravityScale = Mathf.Lerp(RB.gravityScale, 5, speed * Time.deltaTime);
                     tmp.a = Mathf.Lerp(tmp.a, 0, speed * Time.deltaTime);
                     isDropping = true;
