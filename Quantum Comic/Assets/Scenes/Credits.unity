@@ -1432,9 +1432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'BACK
-
-'
+  m_text: Back
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8ec513bf01f7b648b701666c218b879, type: 2}
   m_sharedMaterial: {fileID: -2659777742194805053, guid: b8ec513bf01f7b648b701666c218b879, type: 2}
