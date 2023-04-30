@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform orientation;
 
-    [SerializeField] private bool dev;
+    [SerializeField] private bool dev; // allows dev sprint button
     private float devSprint = 0;
     [SerializeField] private float devSprintSpeed;
 
@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         MyInput();
         MaxSpeed();
 
-        if (dev)
+        if (dev) // checks to allow dev sprinting or not
             if (Input.GetKeyDown(KeyCode.Period))
             {
                 if (devSprint == 0)

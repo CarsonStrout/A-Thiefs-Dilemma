@@ -46,7 +46,7 @@ public class RewindTime : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager3.playerDeath)
+        if (gameManager3.playerDeath) // clears positions on player death, so can't move back to position before death
         {
             positions.Clear();
             gameManager3.playerDeath = false;

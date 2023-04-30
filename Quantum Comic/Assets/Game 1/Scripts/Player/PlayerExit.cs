@@ -5,11 +5,16 @@ using TMPro;
 
 public class PlayerExit : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private TMP_Text exitUI;
-    [SerializeField] private float speed;
     [SerializeField] private PauseMenu loader;
     [SerializeField] private SoundFadeManager soundFadeManager;
     [SerializeField] private AudioSource doorSound;
+
+    [Space(5)]
+    [Header("Stats")]
+    [SerializeField] private float speed;
+
     private bool canExit = false;
     private bool hasExited = false;
 
@@ -17,9 +22,9 @@ public class PlayerExit : MonoBehaviour
     {
         if (canExit)
         {
-            exitUI.alpha = Mathf.Lerp(exitUI.alpha, 1, speed * Time.deltaTime);
+            exitUI.alpha = Mathf.Lerp(exitUI.alpha, 1, speed * Time.deltaTime); // makes UI visible
 
-            if (Input.GetKey(KeyCode.E) && !hasExited)
+            if (Input.GetKey(KeyCode.E) && !hasExited) // can only activate exit once
             {
                 hasExited = true;
                 doorSound.Play();

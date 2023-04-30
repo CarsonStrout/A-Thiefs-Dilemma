@@ -20,6 +20,7 @@ public class ComicReverse : MonoBehaviour
     [SerializeField] private SoundFadeManager soundFadeManager;
     [SerializeField] private GameObject instructionText;
 
+    // Post Processing
     private ChromaticAberration chromaticAberration;
     private Bloom bloom;
     private ColorAdjustments colorAdjustments;
@@ -32,6 +33,7 @@ public class ComicReverse : MonoBehaviour
     [SerializeField] private float colorMax;
     [SerializeField] private float distortionAmount = -0.5f;
     [SerializeField] private float transitionTime;
+
     [Space(5)]
     [Header("Passive Chromatic Abberation")]
     [SerializeField] private float chromMaxPassive;
@@ -59,7 +61,7 @@ public class ComicReverse : MonoBehaviour
 
     private void Update()
     {
-        if (isRewinding)
+        if (isRewinding) // applies post processing changes, eventually fades out
         {
             panel.playbackSpeed = Mathf.Lerp(panel.playbackSpeed, 1, (transitionTime * 3) * Time.deltaTime);
 
@@ -80,10 +82,10 @@ public class ComicReverse : MonoBehaviour
                 SceneManager.LoadScene(5);
         }
 
-        if (!isRewinding)
+        if (!isRewinding) // constantly changes chromatic abberation values
             chromaticAberration.intensity.value = Mathf.PingPong(passiveSpeed * Time.time, chromMaxPassive) + 0.2f;
 
-        if (cm.isActiveAndEnabled && Input.GetKeyDown(KeyCode.LeftShift) && !isRewinding)
+        if (cm.isActiveAndEnabled && Input.GetKeyDown(KeyCode.LeftShift) && !isRewinding) // limits the activation to only once per load
         {
             instructionText.SetActive(false);
             button.SetActive(false);

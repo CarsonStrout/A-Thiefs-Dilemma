@@ -15,12 +15,12 @@ public class SideScrollMovement : MonoBehaviour
     private float coyoteTimeCounter;
     private float jumpBufferCounter;
 
-    [Space]
+    [Space(5)]
     [Header("Checks")]
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
-    [Space]
+    [Space(5)]
     [SerializeField] private RewindTime rewindTime;
 
     private bool isFacingRight = true;

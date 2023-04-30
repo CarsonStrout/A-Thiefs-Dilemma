@@ -6,9 +6,11 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
 
+    [Header("References")]
     [SerializeField] private GameObject pauseMenuUI;
-
     [SerializeField] private LevelLoader levelLoader;
+
+    [Space(5)]
     [SerializeField] private int pageLoad;
 
     void Update()

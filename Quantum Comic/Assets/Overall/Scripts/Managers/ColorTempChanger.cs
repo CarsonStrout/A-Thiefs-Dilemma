@@ -17,6 +17,6 @@ public class ColorTempChanger : MonoBehaviour
 
     private void Update()
     {
-        whiteBalance.temperature.value = Mathf.PingPong(speed * Time.time, 100) - 50;
+        whiteBalance.temperature.value = Mathf.PingPong(speed * Time.time, 100) - 50; // constantly changes temp
     }
 }

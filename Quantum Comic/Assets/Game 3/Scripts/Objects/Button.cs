@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Button : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private ObjectAppear[] objectAppear;
     [SerializeField] private SpriteRenderer buttonSprite;
     [SerializeField] private CinemachineShake cinemachineShake;
     [SerializeField] private AudioSource buttonAudio;
     [SerializeField] private AudioSource doorAudio;
+
+    [Space(5)]
     [SerializeField] private float speed;
-    private Color tmp;
+
+    [Space(5)]
     public bool finalButton;
+
+    private Color tmp;
     private bool canActivate;
     private bool appear = false;
     [HideInInspector] public bool buttonActivated;
@@ -23,7 +29,7 @@ public class Button : MonoBehaviour
 
         tmp = buttonSprite.color;
 
-        if (objectAppear.Length > 0)
+        if (objectAppear.Length > 0) // since both scripts effect alpha values, need to check if object has both scripts assigned
             appear = true;
     }
 
@@ -33,7 +39,7 @@ public class Button : MonoBehaviour
         {
             buttonActivated = true;
             buttonAudio.Play();
-            if (finalButton)
+            if (finalButton) // final button is essentially any button that moves a door / large object
             {
                 cinemachineShake.ShakeCamera(2.4f, 2.5f);
                 doorAudio.Play();

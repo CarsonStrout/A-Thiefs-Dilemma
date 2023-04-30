@@ -8,19 +8,22 @@ using UnityEngine.SceneManagement;
 
 public class ZoomBackTransition : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private Volume pp; // urp post processing
-    private LensDistortion lensDistortion;
-    private Vignette vignette;
-    [SerializeField] private float distortionAmount = 0.5f;
-
     [SerializeField] private ParticleSystem ps;
-
     [SerializeField] private CinemachineVirtualCamera cm, cmZoomOut;
     [SerializeField] private Animator transition;
 
+    private LensDistortion lensDistortion;
+    private Vignette vignette;
+    [Space(5)]
+    [SerializeField] private float distortionAmount = 0.5f;
+
+    [Space(5)]
     [SerializeField] private bool zoomActive = false;
     [SerializeField] private float zoomSpeed;
 
+    [Space(5)]
     [SerializeField] private int levelToLoad;
     [SerializeField] private int pageLoad;
 

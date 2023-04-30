@@ -7,13 +7,19 @@ public class PlatformDrop : MonoBehaviour
     public Rigidbody2D RB { get; private set; }
     public Collider2D Coll { get; private set; }
     private SpriteRenderer platformSprite;
+
+    [Header("References")]
     [SerializeField] private ObjectAppear[] objectAppears;
-    private Color tmp;
-    private Vector2 startPos;
     [SerializeField] private Button button;
+
+    [Space(5)]
     [SerializeField] private float speed;
+
+    [Space(5)]
     public bool isDropping = false;
 
+    private Color tmp;
+    private Vector2 startPos;
     private bool startInvis;
 
     private void Start()
@@ -24,7 +30,7 @@ public class PlatformDrop : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         tmp = platformSprite.color;
 
-        if (objectAppears.Length > 0)
+        if (objectAppears.Length > 0) // since both scripts effect alpha values, need to check if object has both scripts assigned
             startInvis = true;
         else
             startInvis = false;

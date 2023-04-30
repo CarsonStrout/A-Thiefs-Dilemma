@@ -6,19 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManager2 : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private LevelLoader levelLoader;
-    public float gameLength;
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private TMP_Text instructionText;
     [SerializeField] private GameObject gameOverText;
     [SerializeField] private SoundFadeManager soundFadeManager;
     [SerializeField] private AudioSource song;
 
+    [Space(5)]
+    public float gameLength;
+
     private int pageLoad = 1;
 
-    public bool loseGame;
-    public bool gameComplete;
-    public bool freeEnd;
+    [HideInInspector] public bool loseGame;
+    [HideInInspector] public bool gameComplete;
+    [HideInInspector] public bool freeEnd;
 
     private void Start()
     {
@@ -30,7 +33,7 @@ public class GameManager2 : MonoBehaviour
 
     private void Update()
     {
-        if (loseGame)
+        if (loseGame) // sets game over ui
         {
             soundFadeManager.FadeAudio();
             gameOverText.SetActive(true);
@@ -38,7 +41,7 @@ public class GameManager2 : MonoBehaviour
                 SceneManager.LoadScene(3);
         }
 
-        if (gameComplete)
+        if (gameComplete) // sends user to second page
             PlayerPrefs.SetInt("PageNumber", pageLoad);
 
         if (gameLength < 57 && gameLength > 56)
@@ -51,10 +54,10 @@ public class GameManager2 : MonoBehaviour
         if (gameLength < 56)
             instructionText.SetText("");
 
-        if (gameLength < 5)
+        if (gameLength < 5) // stops spawning objects after 5 seconds left
             gameComplete = true;
 
-        if (gameLength < 3)
+        if (gameLength < 3) // moves characters to end positions
         {
             soundFadeManager.FadeAudio();
             freeEnd = true;
@@ -63,7 +66,7 @@ public class GameManager2 : MonoBehaviour
         if (gameLength < 0)
             levelLoader.LoadNextLevel();
 
-        if (gameLength > 0 && !loseGame)
+        if (gameLength > 0 && !loseGame) // will stop timer if player dies
         {
             gameLength -= Time.deltaTime;
             int rounded = (int)gameLength;

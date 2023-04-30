@@ -10,19 +10,12 @@ public class RepeatBackground : MonoBehaviour
     private void Start()
     {
         startPos = transform.position;
-        //repeatHeight = GetComponent<BoxCollider2D>().size.y / 2f;
         repeatHeight = GetComponent<SpriteRenderer>().bounds.size.y / 2;
     }
 
     private void Update()
     {
-        if (transform.position.y < startPos.y - repeatHeight)
+        if (transform.position.y < startPos.y - repeatHeight) // permanently loops background
             transform.position = startPos;
     }
-
-    /* private void Update()
-    {
-        if (transform.position.y < -20.25f)
-            transform.position = new Vector2(0, 20.25f);
-    } */
 }

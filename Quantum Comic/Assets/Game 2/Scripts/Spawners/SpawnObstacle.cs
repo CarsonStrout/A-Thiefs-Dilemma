@@ -32,9 +32,10 @@ public class SpawnObstacle : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.gameComplete)
+        if (gameManager.gameComplete) // no longer spawns after game is completed
             return;
 
+        // difficulty changes
         if (gameManager.gameLength < 50 && !updateSpeed1)
         {
             timeBetweenSpawns -= decreaseTime;
@@ -53,6 +54,7 @@ public class SpawnObstacle : MonoBehaviour
             updateSpeed3 = true;
         }
 
+        // increases timer until spawning is possible, then resets
         if (!canSpawn)
         {
             timer += Time.deltaTime;

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private GameObject player;
     [SerializeField] private RewindTime rewindTime;
     [SerializeField] private CinemachineShake cinemachineShake;
     [SerializeField] private SpriteRenderer playerSprite;
-    private Color tmp;
     [SerializeField] private AudioSource deathAudio;
     [SerializeField] private Button[] buttons;
-    [SerializeField] private float speed;
     [SerializeField] private Transform respawnPos; // unique respawn point assigned in inspector for each "room"
     [SerializeField] private ParticleSystem deathParticle;
+
+    [Space(5)]
+    [SerializeField] private float speed;
     private GameManager3 manager;
+    private Color tmp;
 
     private void Start()
     {
@@ -32,7 +35,7 @@ public class Respawn : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (!rewindTime.isRewinding)
+            if (!rewindTime.isRewinding) // allows player to reverse through death obstacles (lasers)
             {
                 Instantiate(deathParticle, player.transform.position, deathParticle.transform.rotation);
                 manager.playerDeath = true;
@@ -41,6 +44,7 @@ public class Respawn : MonoBehaviour
         }
     }
 
+    // death effects, then moves player to assigned respawn position
     void RespawnPlayer()
     {
         cinemachineShake.ShakeCamera(1f, 0.25f);

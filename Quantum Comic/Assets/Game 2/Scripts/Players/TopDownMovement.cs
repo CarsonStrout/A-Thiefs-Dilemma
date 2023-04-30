@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class TopDownMovement : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private GameManager2 gameManager;
 
+    [Space(5)]
+    [Header("Start and End Positions")]
     [SerializeField] private Vector2 startPos;
     [SerializeField] private float beginningSpeed;
     [SerializeField] private Vector2 finalPos;
     [SerializeField] private float finalSpeed;
 
+    [Space(5)]
+    [Header("Three Movement Spots")]
     [SerializeField] private Vector2[] goalPos;
     [SerializeField] private float speed;
     private int currentPos;
@@ -27,13 +32,13 @@ public class TopDownMovement : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.freeEnd)
+        if (gameManager.freeEnd) // ends the game
         {
             StartCoroutine(EndMove(finalPos));
             return;
         }
 
-        if (isBeginning)
+        if (isBeginning) // moves characters into frame
         {
             StartCoroutine(StartMove(startPos));
             return;

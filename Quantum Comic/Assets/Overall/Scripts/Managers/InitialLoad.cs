@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InitialLoad : MonoBehaviour
 {
-    [SerializeField] private GameObject[] buttons;
+    [SerializeField] private GameObject[] buttons; // begin, credit buttons & title
     public static bool started = false;
 
     private void Awake()

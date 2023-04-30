@@ -22,6 +22,7 @@ public class Disco : MonoBehaviour
 
     private void Update()
     {
+        // constantly changes hue
         colorAdjustments.hueShift.value = Mathf.PingPong(Time.time * transitionTime, 180);
     }
 

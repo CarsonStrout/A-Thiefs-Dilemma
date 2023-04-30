@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+    [Header("References")]
     [SerializeField] private GameManager2 gameManager2;
     [SerializeField] private CinemachineShake cinemachineShake;
     [SerializeField] private GameObject otherPlayer;
 
+    [Space(5)]
     [Header("Particle Effects")]
     [SerializeField] private ParticleSystem boxParticle;
     [SerializeField] private ParticleSystem mineParticle;

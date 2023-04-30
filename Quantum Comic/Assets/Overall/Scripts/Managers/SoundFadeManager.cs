@@ -10,6 +10,7 @@ public class SoundFadeManager : MonoBehaviour
 
     private void Update()
     {
+        // will fade the audio to 0 when activated
         if (!fadeOut)
         {
             for (int i = 0; i < sounds.Length; i++)
