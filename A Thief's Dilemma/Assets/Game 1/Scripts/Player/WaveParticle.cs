@@ -8,7 +8,7 @@ public class WaveParticle : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Material[] materials;
-    [SerializeField] private GameObject playerObj, glasses;
+    [SerializeField] private GameObject playerObj;
     [SerializeField] private AudioSource waveSound;
     [SerializeField] private Volume pp; // urp post processing
     private LensDistortion lensDistortion;
@@ -29,8 +29,10 @@ public class WaveParticle : MonoBehaviour
 
     private void Start()
     {
-        playerObj.GetComponent<MeshRenderer>().material = materials[0];
-        glasses.GetComponent<MeshRenderer>().material = materials[0];
+        //playerObj.GetComponent<SkinnedMeshRenderer>().materials[0] = materials[0];
+        //playerObj.GetComponent<SkinnedMeshRenderer>().materials[1] = materials[1];
+
+        //glasses.GetComponent<MeshRenderer>().material = materials[0];
         inWave = false;
 
         // gets access to post processing effects
@@ -42,14 +44,20 @@ public class WaveParticle : MonoBehaviour
 
     private void Update()
     {
+        Material[] currentlyAssignedMaterials = playerObj.GetComponent<SkinnedMeshRenderer>().materials;
+
         if (Input.GetKey(KeyCode.LeftShift)) // player wave form
         {
             if (!waveSound.isPlaying)
                 waveSound.Play();
 
             // changes player materials to use wave shaders
-            playerObj.GetComponent<MeshRenderer>().material = materials[1];
-            glasses.GetComponent<MeshRenderer>().material = materials[3];
+            //playerObj.GetComponent<SkinnedMeshRenderer>().materials[0] = materials[2];
+            //glasses.GetComponent<MeshRenderer>().material = materials[3];
+
+            currentlyAssignedMaterials[0] = materials[2];
+            currentlyAssignedMaterials[1] = materials[2];
+
             inWave = true;
 
             // distorts the post processing over the stated time
@@ -63,8 +71,12 @@ public class WaveParticle : MonoBehaviour
             waveSound.Stop();
 
             // changes player materials to use its normal materials
-            playerObj.GetComponent<MeshRenderer>().material = materials[0];
-            glasses.GetComponent<MeshRenderer>().material = materials[2];
+            /*  playerObj.GetComponent<SkinnedMeshRenderer>().materials[0] = materials[0];
+             playerObj.GetComponent<SkinnedMeshRenderer>().materials[1] = materials[1]; */
+
+            currentlyAssignedMaterials[0] = materials[0];
+            currentlyAssignedMaterials[1] = materials[1];
+
             inWave = false;
 
             // returns the post processing to its normal values over the stated time
@@ -73,5 +85,7 @@ public class WaveParticle : MonoBehaviour
             bloom.intensity.value = Mathf.Lerp(bloom.intensity.value, 0.2f, waveTime * Time.deltaTime);
             vignette.intensity.value = Mathf.Lerp(vignette.intensity.value, 0.3f, waveTime * Time.deltaTime);
         }
+
+        playerObj.GetComponent<SkinnedMeshRenderer>().materials = currentlyAssignedMaterials;
     }
 }
