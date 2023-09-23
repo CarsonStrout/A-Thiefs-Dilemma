@@ -3,6 +3,8 @@
 A Thief's Dilemma
 </h1>
 
+<h3 align="center"><a href="https://drive.google.com/file/d/1HaYi_ioxv9Fiv7QjSb3F0wWn4iK26pZY/view?usp=sharing">Artifact Video</a></h3>
+
 <h3 align="center"><a href="https://www.boisestate.edu/gimm/">GIMM</a> 250 - Interactive Storytelling </h3>
 <h5 align="center"><a href="https://www.boisestate.edu/">Boise State University</a> (Spring 2023) </h5>
 
