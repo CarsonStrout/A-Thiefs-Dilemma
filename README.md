@@ -8,7 +8,7 @@ A Thief's Dilemma
 <h3 align="center"><a href="https://www.boisestate.edu/gimm/">GIMM</a> 250 - Interactive Storytelling </h3>
 <h5 align="center"><a href="https://www.boisestate.edu/">Boise State University</a> (Spring 2023) </h5>
 
-<h4 align="center">An interactive comic that explores the concepts of quantum mechanics in a larger scale.</h4>
+<h4 align="center">An interactive comic that explores the concepts of quantum mechanics on a larger scale.</h4>
 
 ![screenshot](img/AThief'sDilemma.png "A Thief's Dilemma")
 
